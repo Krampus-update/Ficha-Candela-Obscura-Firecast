@@ -8,7 +8,7 @@
     <style>
         label, edit, button {fontFamily: Sans-serif;}
     </style>
-    <image align='client' src="img/bg-image.png" style="stretch">
+    <image align='client' optimize='true' src="img/bg-image.png" style="stretch">
         <layout g="row" g-min-height="190" margins="{top=30, bottom=10}">
             <layout g="col" g-width="2" g-min-height="190">
                 <image g="row" editable="true" field="pg_pfp" style="autoFit"

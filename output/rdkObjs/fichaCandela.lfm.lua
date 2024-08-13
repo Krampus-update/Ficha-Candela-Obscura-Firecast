@@ -35,6 +35,7 @@ local function constructNew_candela_investigator()
     obj.image1 = GUI.fromHandle(_obj_newObject("image"));
     obj.image1:setParent(obj);
     obj.image1:setAlign("client");
+    obj.image1:setOptimize(true);
     obj.image1:setSRC("img/bg-image.png");
     obj.image1:setStyle("stretch");
     obj.image1:setName("image1");
