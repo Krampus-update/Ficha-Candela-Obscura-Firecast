@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>
+    
+    <template name='cbATT'>
+        <checkBox g="col" g-width="4" name="$(att)_$(num)_$(p)" field="$(att)_$(num)_$(p)">
+            <event name='onChange'>
+                if self.$(att)_3_$(p).checked then
+                    self.$(att)_2_$(p).checked = true;
+                    self.$(att)_1_$(p).checked = true;
+                elseif self.$(att)_2_$(p).checked then
+                    self.$(att)_1_$(p).checked = true;
+                end
+            </event>
+        </checkBox>
+    </template>
+    <template name='action'>
+        <layout g="col" g-width="2" g-cnt-vert-align="center">
+            <checkBox g='col' g-width="12" text='' />
+        </layout>
+        <layout g="col" g-width="4" g-horz-align="left">
+            <label g="row" text='$(at)' fontColor="#21a3a3" g-min-height="50" g-vert-align="center" />
+        </layout>
+        <layout g="col" g-width="6" g-cnt-vert-align="center">
+            <layout g="row" g-min-height="25" g-cnt-vert-align="center" g-cnt-horz-align="between">
+                <cbATT att="$(at)" num="1" p="1"/>
+                <cbATT att="$(at)" num="2" p="1"/>
+                <cbATT att="$(at)" num="3" p="1"/>
+            </layout>
+        </layout>
+    </template>
+</group>
