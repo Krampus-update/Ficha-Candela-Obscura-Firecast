@@ -326,10 +326,42 @@ local function constructNew_candela_investigator()
     obj.rectangle1:setYradius(10);
     obj.rectangle1:setName("rectangle1");
 
+
+            local Nerve;
+            if Nerve == nil or '' then
+                Nerve=0
+            end
+            local function mudar_drive(tipo)
+                if tipo=="aumento" then 
+                    Nerve = Nerve+1;
+                elseif tipo=="diminuir" then
+                Nerve = Nerve-1
+                elseif tipo=="passou" then
+                    Nerve = 9
+                    showMessage("Você não pode ter mais quantidade de drive que isso")
+                end
+                atualizar_drive()
+            end
+
+            local function atualizar_drive()
+                if Nerve < field.Nerve or Nerve > field.Nerve then
+                    field.Nerve = Nerve
+                end
+                if Nerve == 0 then
+                    field.Nerve= "No"
+                elseif field.Nerve > 9 then
+                    mudar_drive('passou')
+                else
+                    field.Nerve=""..Nerve
+                end
+            end
+        
+
+
     obj.layout18 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout18:setParent(obj.layout17);
     obj.layout18.grid.role = "row";
-    obj.layout18.grid["min-height"] = 50;
+    obj.layout18.grid["min-height"] = 40;
     obj.layout18:setName("layout18");
 
     obj.layout19 = GUI.fromHandle(_obj_newObject("layout"));
@@ -368,7 +400,9 @@ local function constructNew_candela_investigator()
     obj.label2:setParent(obj.layout20);
     obj.label2.grid.role = "col";
     obj.label2.grid.width = 8;
-    obj.label2:setText("No Drives");
+    obj.label2.format = "%s Drives";
+    obj.label2:setText("No");
+    obj.label2:setField("Nerve");
     obj.label2:setHorzTextAlign("center");
     obj.label2:setFontColor("#3d3d3c");
     obj.label2:setName("label2");
@@ -417,26 +451,26 @@ local function constructNew_candela_investigator()
     obj.layout23.grid["cnt-vert-align"] = "center";
     obj.layout23:setName("layout23");
 
-    obj.Nerve_r_1_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Nerve_r_1_:setParent(obj.layout23);
-    obj.Nerve_r_1_.grid.role = "col";
-    obj.Nerve_r_1_.grid.width = 4;
-    obj.Nerve_r_1_:setName("Nerve_r_1_");
-    obj.Nerve_r_1_:setField("Nerve_r_1_");
+    obj.Nerve_resistance_combobox_1 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Nerve_resistance_combobox_1:setParent(obj.layout23);
+    obj.Nerve_resistance_combobox_1.grid.role = "col";
+    obj.Nerve_resistance_combobox_1.grid.width = 4;
+    obj.Nerve_resistance_combobox_1:setName("Nerve_resistance_combobox_1");
+    obj.Nerve_resistance_combobox_1:setField("Nerve_resistance_combobox_1");
 
-    obj.Nerve_r_2_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Nerve_r_2_:setParent(obj.layout23);
-    obj.Nerve_r_2_.grid.role = "col";
-    obj.Nerve_r_2_.grid.width = 4;
-    obj.Nerve_r_2_:setName("Nerve_r_2_");
-    obj.Nerve_r_2_:setField("Nerve_r_2_");
+    obj.Nerve_resistance_combobox_2 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Nerve_resistance_combobox_2:setParent(obj.layout23);
+    obj.Nerve_resistance_combobox_2.grid.role = "col";
+    obj.Nerve_resistance_combobox_2.grid.width = 4;
+    obj.Nerve_resistance_combobox_2:setName("Nerve_resistance_combobox_2");
+    obj.Nerve_resistance_combobox_2:setField("Nerve_resistance_combobox_2");
 
-    obj.Nerve_r_3_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Nerve_r_3_:setParent(obj.layout23);
-    obj.Nerve_r_3_.grid.role = "col";
-    obj.Nerve_r_3_.grid.width = 4;
-    obj.Nerve_r_3_:setName("Nerve_r_3_");
-    obj.Nerve_r_3_:setField("Nerve_r_3_");
+    obj.Nerve_resistance_combobox_3 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Nerve_resistance_combobox_3:setParent(obj.layout23);
+    obj.Nerve_resistance_combobox_3.grid.role = "col";
+    obj.Nerve_resistance_combobox_3.grid.width = 4;
+    obj.Nerve_resistance_combobox_3:setName("Nerve_resistance_combobox_3");
+    obj.Nerve_resistance_combobox_3:setField("Nerve_resistance_combobox_3");
 
     obj.layout24 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout24:setParent(obj.layout21);
@@ -655,10 +689,42 @@ local function constructNew_candela_investigator()
     obj.rectangle3:setYradius(10);
     obj.rectangle3:setName("rectangle3");
 
+
+            local Cunning;
+            if Cunning == nil or '' then
+                Cunning=0
+            end
+            local function mudar_drive(tipo)
+                if tipo=="aumento" then 
+                    Cunning = Cunning+1;
+                elseif tipo=="diminuir" then
+                Cunning = Cunning-1
+                elseif tipo=="passou" then
+                    Cunning = 9
+                    showMessage("Você não pode ter mais quantidade de drive que isso")
+                end
+                atualizar_drive()
+            end
+
+            local function atualizar_drive()
+                if Cunning < field.Cunning or Cunning > field.Cunning then
+                    field.Cunning = Cunning
+                end
+                if Cunning == 0 then
+                    field.Cunning= "No"
+                elseif field.Cunning > 9 then
+                    mudar_drive('passou')
+                else
+                    field.Cunning=""..Cunning
+                end
+            end
+        
+
+
     obj.layout37 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout37:setParent(obj.layout36);
     obj.layout37.grid.role = "row";
-    obj.layout37.grid["min-height"] = 50;
+    obj.layout37.grid["min-height"] = 40;
     obj.layout37:setName("layout37");
 
     obj.layout38 = GUI.fromHandle(_obj_newObject("layout"));
@@ -697,7 +763,9 @@ local function constructNew_candela_investigator()
     obj.label8:setParent(obj.layout39);
     obj.label8.grid.role = "col";
     obj.label8.grid.width = 8;
-    obj.label8:setText("No Drives");
+    obj.label8.format = "%s Drives";
+    obj.label8:setText("No");
+    obj.label8:setField("Cunning");
     obj.label8:setHorzTextAlign("center");
     obj.label8:setFontColor("#3d3d3c");
     obj.label8:setName("label8");
@@ -746,26 +814,26 @@ local function constructNew_candela_investigator()
     obj.layout42.grid["cnt-vert-align"] = "center";
     obj.layout42:setName("layout42");
 
-    obj.Cunning_r_1_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Cunning_r_1_:setParent(obj.layout42);
-    obj.Cunning_r_1_.grid.role = "col";
-    obj.Cunning_r_1_.grid.width = 4;
-    obj.Cunning_r_1_:setName("Cunning_r_1_");
-    obj.Cunning_r_1_:setField("Cunning_r_1_");
+    obj.Cunning_resistance_combobox_1 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Cunning_resistance_combobox_1:setParent(obj.layout42);
+    obj.Cunning_resistance_combobox_1.grid.role = "col";
+    obj.Cunning_resistance_combobox_1.grid.width = 4;
+    obj.Cunning_resistance_combobox_1:setName("Cunning_resistance_combobox_1");
+    obj.Cunning_resistance_combobox_1:setField("Cunning_resistance_combobox_1");
 
-    obj.Cunning_r_2_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Cunning_r_2_:setParent(obj.layout42);
-    obj.Cunning_r_2_.grid.role = "col";
-    obj.Cunning_r_2_.grid.width = 4;
-    obj.Cunning_r_2_:setName("Cunning_r_2_");
-    obj.Cunning_r_2_:setField("Cunning_r_2_");
+    obj.Cunning_resistance_combobox_2 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Cunning_resistance_combobox_2:setParent(obj.layout42);
+    obj.Cunning_resistance_combobox_2.grid.role = "col";
+    obj.Cunning_resistance_combobox_2.grid.width = 4;
+    obj.Cunning_resistance_combobox_2:setName("Cunning_resistance_combobox_2");
+    obj.Cunning_resistance_combobox_2:setField("Cunning_resistance_combobox_2");
 
-    obj.Cunning_r_3_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Cunning_r_3_:setParent(obj.layout42);
-    obj.Cunning_r_3_.grid.role = "col";
-    obj.Cunning_r_3_.grid.width = 4;
-    obj.Cunning_r_3_:setName("Cunning_r_3_");
-    obj.Cunning_r_3_:setField("Cunning_r_3_");
+    obj.Cunning_resistance_combobox_3 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Cunning_resistance_combobox_3:setParent(obj.layout42);
+    obj.Cunning_resistance_combobox_3.grid.role = "col";
+    obj.Cunning_resistance_combobox_3.grid.width = 4;
+    obj.Cunning_resistance_combobox_3:setName("Cunning_resistance_combobox_3");
+    obj.Cunning_resistance_combobox_3:setField("Cunning_resistance_combobox_3");
 
     obj.layout43 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout43:setParent(obj.layout40);
@@ -984,10 +1052,42 @@ local function constructNew_candela_investigator()
     obj.rectangle5:setYradius(10);
     obj.rectangle5:setName("rectangle5");
 
+
+            local Intuition;
+            if Intuition == nil or '' then
+                Intuition=0
+            end
+            local function mudar_drive(tipo)
+                if tipo=="aumento" then 
+                    Intuition = Intuition+1;
+                elseif tipo=="diminuir" then
+                Intuition = Intuition-1
+                elseif tipo=="passou" then
+                    Intuition = 9
+                    showMessage("Você não pode ter mais quantidade de drive que isso")
+                end
+                atualizar_drive()
+            end
+
+            local function atualizar_drive()
+                if Intuition < field.Intuition or Intuition > field.Intuition then
+                    field.Intuition = Intuition
+                end
+                if Intuition == 0 then
+                    field.Intuition= "No"
+                elseif field.Intuition > 9 then
+                    mudar_drive('passou')
+                else
+                    field.Intuition=""..Intuition
+                end
+            end
+        
+
+
     obj.layout56 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout56:setParent(obj.layout55);
     obj.layout56.grid.role = "row";
-    obj.layout56.grid["min-height"] = 50;
+    obj.layout56.grid["min-height"] = 40;
     obj.layout56:setName("layout56");
 
     obj.layout57 = GUI.fromHandle(_obj_newObject("layout"));
@@ -1026,7 +1126,9 @@ local function constructNew_candela_investigator()
     obj.label14:setParent(obj.layout58);
     obj.label14.grid.role = "col";
     obj.label14.grid.width = 8;
-    obj.label14:setText("No Drives");
+    obj.label14.format = "%s Drives";
+    obj.label14:setText("No");
+    obj.label14:setField("Intuition");
     obj.label14:setHorzTextAlign("center");
     obj.label14:setFontColor("#3d3d3c");
     obj.label14:setName("label14");
@@ -1075,26 +1177,26 @@ local function constructNew_candela_investigator()
     obj.layout61.grid["cnt-vert-align"] = "center";
     obj.layout61:setName("layout61");
 
-    obj.Intuition_r_1_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Intuition_r_1_:setParent(obj.layout61);
-    obj.Intuition_r_1_.grid.role = "col";
-    obj.Intuition_r_1_.grid.width = 4;
-    obj.Intuition_r_1_:setName("Intuition_r_1_");
-    obj.Intuition_r_1_:setField("Intuition_r_1_");
+    obj.Intuition_resistance_combobox_1 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Intuition_resistance_combobox_1:setParent(obj.layout61);
+    obj.Intuition_resistance_combobox_1.grid.role = "col";
+    obj.Intuition_resistance_combobox_1.grid.width = 4;
+    obj.Intuition_resistance_combobox_1:setName("Intuition_resistance_combobox_1");
+    obj.Intuition_resistance_combobox_1:setField("Intuition_resistance_combobox_1");
 
-    obj.Intuition_r_2_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Intuition_r_2_:setParent(obj.layout61);
-    obj.Intuition_r_2_.grid.role = "col";
-    obj.Intuition_r_2_.grid.width = 4;
-    obj.Intuition_r_2_:setName("Intuition_r_2_");
-    obj.Intuition_r_2_:setField("Intuition_r_2_");
+    obj.Intuition_resistance_combobox_2 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Intuition_resistance_combobox_2:setParent(obj.layout61);
+    obj.Intuition_resistance_combobox_2.grid.role = "col";
+    obj.Intuition_resistance_combobox_2.grid.width = 4;
+    obj.Intuition_resistance_combobox_2:setName("Intuition_resistance_combobox_2");
+    obj.Intuition_resistance_combobox_2:setField("Intuition_resistance_combobox_2");
 
-    obj.Intuition_r_3_ = GUI.fromHandle(_obj_newObject("checkBox"));
-    obj.Intuition_r_3_:setParent(obj.layout61);
-    obj.Intuition_r_3_.grid.role = "col";
-    obj.Intuition_r_3_.grid.width = 4;
-    obj.Intuition_r_3_:setName("Intuition_r_3_");
-    obj.Intuition_r_3_:setField("Intuition_r_3_");
+    obj.Intuition_resistance_combobox_3 = GUI.fromHandle(_obj_newObject("checkBox"));
+    obj.Intuition_resistance_combobox_3:setParent(obj.layout61);
+    obj.Intuition_resistance_combobox_3.grid.role = "col";
+    obj.Intuition_resistance_combobox_3.grid.width = 4;
+    obj.Intuition_resistance_combobox_3:setName("Intuition_resistance_combobox_3");
+    obj.Intuition_resistance_combobox_3:setField("Intuition_resistance_combobox_3");
 
     obj.layout62 = GUI.fromHandle(_obj_newObject("layout"));
     obj.layout62:setParent(obj.layout59);
@@ -1319,41 +1421,41 @@ local function constructNew_candela_investigator()
 
     obj._e_event4 = obj.button5:addEventListener("onClick",
         function (event)
-            showMessage('- funciona')
+            mudar_drive('diminuir')
         end);
 
     obj._e_event5 = obj.button6:addEventListener("onClick",
         function (event)
-            showMessage('+ funciona')
+            mudar_drive('aumento')
         end);
 
-    obj._e_event6 = obj.Nerve_r_1_:addEventListener("onChange",
+    obj._e_event6 = obj.Nerve_resistance_combobox_1:addEventListener("onChange",
         function ()
-            if self.Nerve_r_3_.checked then
-                                self.Nerve_r_2_.checked = true;
-                                self.Nerve_r_1_.checked = true;
-                            elseif self.Nerve_r_2_.checked then
-                                self.Nerve_r_1_.checked = true;
+            if self.Nerve_resistance_combobox_1_3.checked then
+                                self.Nerve_resistance_combobox_1_2.checked = true;
+                                self.Nerve_resistance_combobox_1_1.checked = true;
+                            elseif self.Nerve_resistance_combobox_1_2.checked then
+                                self.Nerve_resistance_combobox_1_1.checked = true;
                             end
         end);
 
-    obj._e_event7 = obj.Nerve_r_2_:addEventListener("onChange",
+    obj._e_event7 = obj.Nerve_resistance_combobox_2:addEventListener("onChange",
         function ()
-            if self.Nerve_r_3_.checked then
-                                self.Nerve_r_2_.checked = true;
-                                self.Nerve_r_1_.checked = true;
-                            elseif self.Nerve_r_2_.checked then
-                                self.Nerve_r_1_.checked = true;
+            if self.Nerve_resistance_combobox_2_3.checked then
+                                self.Nerve_resistance_combobox_2_2.checked = true;
+                                self.Nerve_resistance_combobox_2_1.checked = true;
+                            elseif self.Nerve_resistance_combobox_2_2.checked then
+                                self.Nerve_resistance_combobox_2_1.checked = true;
                             end
         end);
 
-    obj._e_event8 = obj.Nerve_r_3_:addEventListener("onChange",
+    obj._e_event8 = obj.Nerve_resistance_combobox_3:addEventListener("onChange",
         function ()
-            if self.Nerve_r_3_.checked then
-                                self.Nerve_r_2_.checked = true;
-                                self.Nerve_r_1_.checked = true;
-                            elseif self.Nerve_r_2_.checked then
-                                self.Nerve_r_1_.checked = true;
+            if self.Nerve_resistance_combobox_3_3.checked then
+                                self.Nerve_resistance_combobox_3_2.checked = true;
+                                self.Nerve_resistance_combobox_3_1.checked = true;
+                            elseif self.Nerve_resistance_combobox_3_2.checked then
+                                self.Nerve_resistance_combobox_3_1.checked = true;
                             end
         end);
 
@@ -1449,41 +1551,41 @@ local function constructNew_candela_investigator()
 
     obj._e_event18 = obj.button7:addEventListener("onClick",
         function (event)
-            showMessage('- funciona')
+            mudar_drive('diminuir')
         end);
 
     obj._e_event19 = obj.button8:addEventListener("onClick",
         function (event)
-            showMessage('+ funciona')
+            mudar_drive('aumento')
         end);
 
-    obj._e_event20 = obj.Cunning_r_1_:addEventListener("onChange",
+    obj._e_event20 = obj.Cunning_resistance_combobox_1:addEventListener("onChange",
         function ()
-            if self.Cunning_r_3_.checked then
-                                self.Cunning_r_2_.checked = true;
-                                self.Cunning_r_1_.checked = true;
-                            elseif self.Cunning_r_2_.checked then
-                                self.Cunning_r_1_.checked = true;
+            if self.Cunning_resistance_combobox_1_3.checked then
+                                self.Cunning_resistance_combobox_1_2.checked = true;
+                                self.Cunning_resistance_combobox_1_1.checked = true;
+                            elseif self.Cunning_resistance_combobox_1_2.checked then
+                                self.Cunning_resistance_combobox_1_1.checked = true;
                             end
         end);
 
-    obj._e_event21 = obj.Cunning_r_2_:addEventListener("onChange",
+    obj._e_event21 = obj.Cunning_resistance_combobox_2:addEventListener("onChange",
         function ()
-            if self.Cunning_r_3_.checked then
-                                self.Cunning_r_2_.checked = true;
-                                self.Cunning_r_1_.checked = true;
-                            elseif self.Cunning_r_2_.checked then
-                                self.Cunning_r_1_.checked = true;
+            if self.Cunning_resistance_combobox_2_3.checked then
+                                self.Cunning_resistance_combobox_2_2.checked = true;
+                                self.Cunning_resistance_combobox_2_1.checked = true;
+                            elseif self.Cunning_resistance_combobox_2_2.checked then
+                                self.Cunning_resistance_combobox_2_1.checked = true;
                             end
         end);
 
-    obj._e_event22 = obj.Cunning_r_3_:addEventListener("onChange",
+    obj._e_event22 = obj.Cunning_resistance_combobox_3:addEventListener("onChange",
         function ()
-            if self.Cunning_r_3_.checked then
-                                self.Cunning_r_2_.checked = true;
-                                self.Cunning_r_1_.checked = true;
-                            elseif self.Cunning_r_2_.checked then
-                                self.Cunning_r_1_.checked = true;
+            if self.Cunning_resistance_combobox_3_3.checked then
+                                self.Cunning_resistance_combobox_3_2.checked = true;
+                                self.Cunning_resistance_combobox_3_1.checked = true;
+                            elseif self.Cunning_resistance_combobox_3_2.checked then
+                                self.Cunning_resistance_combobox_3_1.checked = true;
                             end
         end);
 
@@ -1579,41 +1681,41 @@ local function constructNew_candela_investigator()
 
     obj._e_event32 = obj.button9:addEventListener("onClick",
         function (event)
-            showMessage('- funciona')
+            mudar_drive('diminuir')
         end);
 
     obj._e_event33 = obj.button10:addEventListener("onClick",
         function (event)
-            showMessage('+ funciona')
+            mudar_drive('aumento')
         end);
 
-    obj._e_event34 = obj.Intuition_r_1_:addEventListener("onChange",
+    obj._e_event34 = obj.Intuition_resistance_combobox_1:addEventListener("onChange",
         function ()
-            if self.Intuition_r_3_.checked then
-                                self.Intuition_r_2_.checked = true;
-                                self.Intuition_r_1_.checked = true;
-                            elseif self.Intuition_r_2_.checked then
-                                self.Intuition_r_1_.checked = true;
+            if self.Intuition_resistance_combobox_1_3.checked then
+                                self.Intuition_resistance_combobox_1_2.checked = true;
+                                self.Intuition_resistance_combobox_1_1.checked = true;
+                            elseif self.Intuition_resistance_combobox_1_2.checked then
+                                self.Intuition_resistance_combobox_1_1.checked = true;
                             end
         end);
 
-    obj._e_event35 = obj.Intuition_r_2_:addEventListener("onChange",
+    obj._e_event35 = obj.Intuition_resistance_combobox_2:addEventListener("onChange",
         function ()
-            if self.Intuition_r_3_.checked then
-                                self.Intuition_r_2_.checked = true;
-                                self.Intuition_r_1_.checked = true;
-                            elseif self.Intuition_r_2_.checked then
-                                self.Intuition_r_1_.checked = true;
+            if self.Intuition_resistance_combobox_2_3.checked then
+                                self.Intuition_resistance_combobox_2_2.checked = true;
+                                self.Intuition_resistance_combobox_2_1.checked = true;
+                            elseif self.Intuition_resistance_combobox_2_2.checked then
+                                self.Intuition_resistance_combobox_2_1.checked = true;
                             end
         end);
 
-    obj._e_event36 = obj.Intuition_r_3_:addEventListener("onChange",
+    obj._e_event36 = obj.Intuition_resistance_combobox_3:addEventListener("onChange",
         function ()
-            if self.Intuition_r_3_.checked then
-                                self.Intuition_r_2_.checked = true;
-                                self.Intuition_r_1_.checked = true;
-                            elseif self.Intuition_r_2_.checked then
-                                self.Intuition_r_1_.checked = true;
+            if self.Intuition_resistance_combobox_3_3.checked then
+                                self.Intuition_resistance_combobox_3_2.checked = true;
+                                self.Intuition_resistance_combobox_3_1.checked = true;
+                            elseif self.Intuition_resistance_combobox_3_2.checked then
+                                self.Intuition_resistance_combobox_3_1.checked = true;
                             end
         end);
 
@@ -1767,29 +1869,27 @@ local function constructNew_candela_investigator()
 
         if self.layout8 ~= nil then self.layout8:destroy(); self.layout8 = nil; end;
         if self.Move_2_1 ~= nil then self.Move_2_1:destroy(); self.Move_2_1 = nil; end;
-        if self.Nerve_r_1_ ~= nil then self.Nerve_r_1_:destroy(); self.Nerve_r_1_ = nil; end;
         if self.layout31 ~= nil then self.layout31:destroy(); self.layout31 = nil; end;
         if self.layout11 ~= nil then self.layout11:destroy(); self.layout11 = nil; end;
         if self.rectangle6 ~= nil then self.rectangle6:destroy(); self.rectangle6 = nil; end;
         if self.layout3 ~= nil then self.layout3:destroy(); self.layout3 = nil; end;
         if self.Catalyst_popup ~= nil then self.Catalyst_popup:destroy(); self.Catalyst_popup = nil; end;
         if self.layout43 ~= nil then self.layout43:destroy(); self.layout43 = nil; end;
+        if self.Nerve_resistance_combobox_3 ~= nil then self.Nerve_resistance_combobox_3:destroy(); self.Nerve_resistance_combobox_3 = nil; end;
         if self.layout27 ~= nil then self.layout27:destroy(); self.layout27 = nil; end;
         if self.Strike_1_1 ~= nil then self.Strike_1_1:destroy(); self.Strike_1_1 = nil; end;
         if self.rectangle3 ~= nil then self.rectangle3:destroy(); self.rectangle3 = nil; end;
         if self.layout70 ~= nil then self.layout70:destroy(); self.layout70 = nil; end;
         if self.checkBox4 ~= nil then self.checkBox4:destroy(); self.checkBox4 = nil; end;
         if self.layout50 ~= nil then self.layout50:destroy(); self.layout50 = nil; end;
-        if self.Cunning_r_2_ ~= nil then self.Cunning_r_2_:destroy(); self.Cunning_r_2_ = nil; end;
-        if self.layout46 ~= nil then self.layout46:destroy(); self.layout46 = nil; end;
         if self.layout62 ~= nil then self.layout62:destroy(); self.layout62 = nil; end;
+        if self.layout46 ~= nil then self.layout46:destroy(); self.layout46 = nil; end;
         if self.layout22 ~= nil then self.layout22:destroy(); self.layout22 = nil; end;
         if self.image2 ~= nil then self.image2:destroy(); self.image2 = nil; end;
-        if self.Nerve_r_3_ ~= nil then self.Nerve_r_3_:destroy(); self.Nerve_r_3_ = nil; end;
+        if self.Focus_1_1 ~= nil then self.Focus_1_1:destroy(); self.Focus_1_1 = nil; end;
         if self.Control_1_1 ~= nil then self.Control_1_1:destroy(); self.Control_1_1 = nil; end;
         if self.Sway_2_1 ~= nil then self.Sway_2_1:destroy(); self.Sway_2_1 = nil; end;
         if self.richEdit5 ~= nil then self.richEdit5:destroy(); self.richEdit5 = nil; end;
-        if self.Focus_1_1 ~= nil then self.Focus_1_1:destroy(); self.Focus_1_1 = nil; end;
         if self.checkBox1 ~= nil then self.checkBox1:destroy(); self.checkBox1 = nil; end;
         if self.layout16 ~= nil then self.layout16:destroy(); self.layout16 = nil; end;
         if self.layout55 ~= nil then self.layout55:destroy(); self.layout55 = nil; end;
@@ -1797,8 +1897,8 @@ local function constructNew_candela_investigator()
         if self.label10 ~= nil then self.label10:destroy(); self.label10 = nil; end;
         if self.layout29 ~= nil then self.layout29:destroy(); self.layout29 = nil; end;
         if self.Strike_2_1 ~= nil then self.Strike_2_1:destroy(); self.Strike_2_1 = nil; end;
-        if self.Cunning_r_3_ ~= nil then self.Cunning_r_3_:destroy(); self.Cunning_r_3_ = nil; end;
         if self.layout49 ~= nil then self.layout49:destroy(); self.layout49 = nil; end;
+        if self.Intuition_resistance_combobox_1 ~= nil then self.Intuition_resistance_combobox_1:destroy(); self.Intuition_resistance_combobox_1 = nil; end;
         if self.Control_3_1 ~= nil then self.Control_3_1:destroy(); self.Control_3_1 = nil; end;
         if self.richEdit8 ~= nil then self.richEdit8:destroy(); self.richEdit8 = nil; end;
         if self.layout69 ~= nil then self.layout69:destroy(); self.layout69 = nil; end;
@@ -1820,8 +1920,6 @@ local function constructNew_candela_investigator()
         if self.layout40 ~= nil then self.layout40:destroy(); self.layout40 = nil; end;
         if self.layout20 ~= nil then self.layout20:destroy(); self.layout20 = nil; end;
         if self.label5 ~= nil then self.label5:destroy(); self.label5 = nil; end;
-        if self.Cunning_r_1_ ~= nil then self.Cunning_r_1_:destroy(); self.Cunning_r_1_ = nil; end;
-        if self.Intuition_r_3_ ~= nil then self.Intuition_r_3_:destroy(); self.Intuition_r_3_ = nil; end;
         if self.Sense_2_1 ~= nil then self.Sense_2_1:destroy(); self.Sense_2_1 = nil; end;
         if self.richEdit3 ~= nil then self.richEdit3:destroy(); self.richEdit3 = nil; end;
         if self.layout73 ~= nil then self.layout73:destroy(); self.layout73 = nil; end;
@@ -1833,6 +1931,7 @@ local function constructNew_candela_investigator()
         if self.label12 ~= nil then self.label12:destroy(); self.label12 = nil; end;
         if self.layout57 ~= nil then self.layout57:destroy(); self.layout57 = nil; end;
         if self.image1 ~= nil then self.image1:destroy(); self.image1 = nil; end;
+        if self.Intuition_resistance_combobox_3 ~= nil then self.Intuition_resistance_combobox_3:destroy(); self.Intuition_resistance_combobox_3 = nil; end;
         if self.layout67 ~= nil then self.layout67:destroy(); self.layout67 = nil; end;
         if self.richEdit6 ~= nil then self.richEdit6:destroy(); self.richEdit6 = nil; end;
         if self.layout35 ~= nil then self.layout35:destroy(); self.layout35 = nil; end;
@@ -1854,9 +1953,10 @@ local function constructNew_candela_investigator()
         if self.layout71 ~= nil then self.layout71:destroy(); self.layout71 = nil; end;
         if self.Sense_3_1 ~= nil then self.Sense_3_1:destroy(); self.Sense_3_1 = nil; end;
         if self.checkBox5 ~= nil then self.checkBox5:destroy(); self.checkBox5 = nil; end;
+        if self.Cunning_resistance_combobox_2 ~= nil then self.Cunning_resistance_combobox_2:destroy(); self.Cunning_resistance_combobox_2 = nil; end;
         if self.Read_2_1 ~= nil then self.Read_2_1:destroy(); self.Read_2_1 = nil; end;
-        if self.layout51 ~= nil then self.layout51:destroy(); self.layout51 = nil; end;
         if self.layout45 ~= nil then self.layout45:destroy(); self.layout45 = nil; end;
+        if self.layout51 ~= nil then self.layout51:destroy(); self.layout51 = nil; end;
         if self.layout65 ~= nil then self.layout65:destroy(); self.layout65 = nil; end;
         if self.Survey_3_1 ~= nil then self.Survey_3_1:destroy(); self.Survey_3_1 = nil; end;
         if self.richEdit4 ~= nil then self.richEdit4:destroy(); self.richEdit4 = nil; end;
@@ -1870,29 +1970,30 @@ local function constructNew_candela_investigator()
         if self.layout30 ~= nil then self.layout30:destroy(); self.layout30 = nil; end;
         if self.layout10 ~= nil then self.layout10:destroy(); self.layout10 = nil; end;
         if self.rectangle5 ~= nil then self.rectangle5:destroy(); self.rectangle5 = nil; end;
-        if self.Intuition_r_2_ ~= nil then self.Intuition_r_2_:destroy(); self.Intuition_r_2_ = nil; end;
         if self.layout4 ~= nil then self.layout4:destroy(); self.layout4 = nil; end;
+        if self.Nerve_resistance_combobox_2 ~= nil then self.Nerve_resistance_combobox_2:destroy(); self.Nerve_resistance_combobox_2 = nil; end;
         if self.layout24 ~= nil then self.layout24:destroy(); self.layout24 = nil; end;
         if self.label1 ~= nil then self.label1:destroy(); self.label1 = nil; end;
         if self.button10 ~= nil then self.button10:destroy(); self.button10 = nil; end;
         if self.rectangle2 ~= nil then self.rectangle2:destroy(); self.rectangle2 = nil; end;
         if self.layout53 ~= nil then self.layout53:destroy(); self.layout53 = nil; end;
-        if self.Intuition_r_1_ ~= nil then self.Intuition_r_1_:destroy(); self.Intuition_r_1_ = nil; end;
         if self.checkBox7 ~= nil then self.checkBox7:destroy(); self.checkBox7 = nil; end;
-        if self.layout47 ~= nil then self.layout47:destroy(); self.layout47 = nil; end;
         if self.layout63 ~= nil then self.layout63:destroy(); self.layout63 = nil; end;
+        if self.layout47 ~= nil then self.layout47:destroy(); self.layout47 = nil; end;
+        if self.Sense_1_1 ~= nil then self.Sense_1_1:destroy(); self.Sense_1_1 = nil; end;
         if self.layout23 ~= nil then self.layout23:destroy(); self.layout23 = nil; end;
         if self.Style_popup ~= nil then self.Style_popup:destroy(); self.Style_popup = nil; end;
         if self.label4 ~= nil then self.label4:destroy(); self.label4 = nil; end;
-        if self.Sense_1_1 ~= nil then self.Sense_1_1:destroy(); self.Sense_1_1 = nil; end;
         if self.Circle_popup ~= nil then self.Circle_popup:destroy(); self.Circle_popup = nil; end;
         if self.richEdit2 ~= nil then self.richEdit2:destroy(); self.richEdit2 = nil; end;
         if self.layout39 ~= nil then self.layout39:destroy(); self.layout39 = nil; end;
         if self.Read_3_1 ~= nil then self.Read_3_1:destroy(); self.Read_3_1 = nil; end;
         if self.layout19 ~= nil then self.layout19:destroy(); self.layout19 = nil; end;
-        if self.layout54 ~= nil then self.layout54:destroy(); self.layout54 = nil; end;
+        if self.Cunning_resistance_combobox_1 ~= nil then self.Cunning_resistance_combobox_1:destroy(); self.Cunning_resistance_combobox_1 = nil; end;
         if self.button2 ~= nil then self.button2:destroy(); self.button2 = nil; end;
+        if self.layout54 ~= nil then self.layout54:destroy(); self.layout54 = nil; end;
         if self.label13 ~= nil then self.label13:destroy(); self.label13 = nil; end;
+        if self.Intuition_resistance_combobox_2 ~= nil then self.Intuition_resistance_combobox_2:destroy(); self.Intuition_resistance_combobox_2 = nil; end;
         if self.layout66 ~= nil then self.layout66:destroy(); self.layout66 = nil; end;
         if self.Move_3_1 ~= nil then self.Move_3_1:destroy(); self.Move_3_1 = nil; end;
         if self.layout36 ~= nil then self.layout36:destroy(); self.layout36 = nil; end;
@@ -1900,10 +2001,9 @@ local function constructNew_candela_investigator()
         if self.layout12 ~= nil then self.layout12:destroy(); self.layout12 = nil; end;
         if self.button5 ~= nil then self.button5:destroy(); self.button5 = nil; end;
         if self.label14 ~= nil then self.label14:destroy(); self.label14 = nil; end;
-        if self.Nerve_r_2_ ~= nil then self.Nerve_r_2_:destroy(); self.Nerve_r_2_ = nil; end;
+        if self.Survey_2_1 ~= nil then self.Survey_2_1:destroy(); self.Survey_2_1 = nil; end;
         if self.layout6 ~= nil then self.layout6:destroy(); self.layout6 = nil; end;
         if self.layout58 ~= nil then self.layout58:destroy(); self.layout58 = nil; end;
-        if self.Survey_2_1 ~= nil then self.Survey_2_1:destroy(); self.Survey_2_1 = nil; end;
         if self.Focus_3_1 ~= nil then self.Focus_3_1:destroy(); self.Focus_3_1 = nil; end;
         if self.layout33 ~= nil then self.layout33:destroy(); self.layout33 = nil; end;
         if self.label3 ~= nil then self.label3:destroy(); self.label3 = nil; end;
@@ -1913,18 +2013,20 @@ local function constructNew_candela_investigator()
         if self.checkBox9 ~= nil then self.checkBox9:destroy(); self.checkBox9 = nil; end;
         if self.layout61 ~= nil then self.layout61:destroy(); self.layout61 = nil; end;
         if self.layout41 ~= nil then self.layout41:destroy(); self.layout41 = nil; end;
-        if self.button9 ~= nil then self.button9:destroy(); self.button9 = nil; end;
+        if self.Nerve_resistance_combobox_1 ~= nil then self.Nerve_resistance_combobox_1:destroy(); self.Nerve_resistance_combobox_1 = nil; end;
         if self.layout21 ~= nil then self.layout21:destroy(); self.layout21 = nil; end;
         if self.Strike_3_1 ~= nil then self.Strike_3_1:destroy(); self.Strike_3_1 = nil; end;
         if self.label6 ~= nil then self.label6:destroy(); self.label6 = nil; end;
+        if self.button9 ~= nil then self.button9:destroy(); self.button9 = nil; end;
         if self.label18 ~= nil then self.label18:destroy(); self.label18 = nil; end;
         if self.Control_2_1 ~= nil then self.Control_2_1:destroy(); self.Control_2_1 = nil; end;
         if self.Sway_1_1 ~= nil then self.Sway_1_1:destroy(); self.Sway_1_1 = nil; end;
         if self.layout72 ~= nil then self.layout72:destroy(); self.layout72 = nil; end;
         if self.checkBox2 ~= nil then self.checkBox2:destroy(); self.checkBox2 = nil; end;
+        if self.Cunning_resistance_combobox_3 ~= nil then self.Cunning_resistance_combobox_3:destroy(); self.Cunning_resistance_combobox_3 = nil; end;
         if self.layout56 ~= nil then self.layout56:destroy(); self.layout56 = nil; end;
-        if self.layout64 ~= nil then self.layout64:destroy(); self.layout64 = nil; end;
         if self.layout44 ~= nil then self.layout44:destroy(); self.layout44 = nil; end;
+        if self.layout64 ~= nil then self.layout64:destroy(); self.layout64 = nil; end;
         if self.richEdit7 ~= nil then self.richEdit7:destroy(); self.richEdit7 = nil; end;
         if self.Hide_3_1 ~= nil then self.Hide_3_1:destroy(); self.Hide_3_1 = nil; end;
         if self.layout34 ~= nil then self.layout34:destroy(); self.layout34 = nil; end;

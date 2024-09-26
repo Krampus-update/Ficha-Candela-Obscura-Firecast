@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<group>
+    <template name='descLabelEditL'>
+        <popup name='$(texto)_popup' height='500' width='500' backOpacity='0.5'>
+            <richEdit align='client' field="char.$(texto)" backgroundColor="#191a1e" defaultFontColor="#ede9da" margins="{top=5,left=5,right=5,bottom=5}" />
+        </popup>
+
+        <layout g="col" g-width="3" g-min-height="130">
+            <layout g="row" g-min-height="30">
+                <button g='col' text="$(texto)" g-width="12">
+                    <event name='onClick'>
+                        self.$(texto)_popup:show();
+                    </event>
+                </button>
+            </layout>
+            <layout g="row" g-min-height="100">
+                <richEdit g='col' g-width="12" g-min-height="100" field="char.$(texto)" showToolbar="false" defaultFontSize="13" defaultFontColor="#ede9da" backgroundColor="#191a1e" />
+            </layout>
+        </layout>
+    </template>
+    <template name='combo_box_atributo'>
+        <script>
+
+        </script>
+        <checkBox g="col" g-width="4" name="$(atributo)$(ordem)$(p)" field="$(atributo)$(ordem)$(p)">
+            <event name='onChange'>
+
+            </event>
+        </checkBox>
+    </template>
+    <template name='action'>
+        <layout g="col" g-width="2" g-cnt-vert-align="center">
+            <checkBox g='col' g-width="12" text='' />
+        </layout>
+        <layout g="col" g-width="4" g-horz-align="left">
+            <label g="row" text='$(action_name)' fontColor="#21a3a3" g-min-height="50" g-vert-align="center" />
+        </layout>
+        <layout g="col" g-width="6" g-cnt-vert-align="center">
+            <layout g="row" g-min-height="25" g-cnt-vert-align="center" g-cnt-horz-align="between">
+                <combo_box_atributo atributo="$(action_name)" ordem="_1" p="_1"/>
+                <combo_box_atributo atributo="$(action_name)" ordem="_2" p="_1"/>
+                <combo_box_atributo atributo="$(action_name)" ordem="_3" p="_1"/>
+            </layout>
+            <layout g="row" g-min-height="25" g-cnt-vert-align="center" g-cnt-horz-align="between">
+                <combo_box_atributo atributo="$(action_name)" ordem="_1" p="_2"/>
+                <combo_box_atributo atributo="$(action_name)" ordem="_2" p="_2"/>
+                <combo_box_atributo atributo="$(action_name)" ordem="_3" p="_2"/>
+            </layout>
+        </layout>
+    </template>
+    <template name='resistance'>
+        <layout g="col" g-width="6">
+            <label align="client" text='RESISTANCE' fontColor="#ede9da" />
+        </layout>
+        <layout g="col" g-width="6" g-cnt-vert-align="center">
+            <combo_box_atributo atributo="$(drive_resistance)_combobox_1"/>
+            <combo_box_atributo atributo="$(drive_resistance)_combobox_2"/>
+            <combo_box_atributo atributo="$(drive_resistance)_combobox_3"/>
+        </layout>
+    </template>
+    <template name='drives'>
+        <script><![CDATA[
+            local $(drive);
+            if $(drive) == nil or '' then
+                $(drive)=0
+            end
+            local function mudar_drive(tipo)
+                if tipo == "aumento" then 
+                    $(drive) = $(drive)+1;
+                elseif tipo == "diminuir" then
+                $(drive) = $(drive)-1
+                elseif tipo =="passou" then
+                    $(drive) = 9
+                    showMessage("Você não pode ter mais quantidade de drive que isso")
+                end
+                atualizar_drive()
+            end
+
+            local function atualizar_drive()
+                if $(drive) < field.$(drive) or $(drive) > field.$(drive) then
+                    field.$(drive) = $(drive)
+                end
+                if $(drive) == 0 then
+                    field.$(drive)= "No"
+                elseif field.$(drive) > 9 then
+                    mudar_drive('passou')
+                else
+                    field.$(drive)=""..$(drive)
+                end
+            end
+        ]]>        </script>
+        <layout g='row' g-min-height='40'>
+            <layout g="col" g-width="5" g-cnt-vert-align="center">
+                <label g="col" g-width="12" text='$(drive)' fontColor="#ede9da" />
+            </layout>
+            <layout g="col" g-width="7" g-cnt-vert-align="center">
+                <button g="col" g-width="2" text='-' horzTextAlign="center" onClick="mudar_drive('diminuir')" />
+                <label g="col" g-width="8" format='%s Drives' text='No' field="$(drive)" horzTextAlign="center" fontColor="#3d3d3c"/>
+                <button g="col" g-width="2" text='+' horzTextAlign="center" onClick="mudar_drive('aumento')" />
+            </layout>
+        </layout>
+        <rectangle g="row" color='#322b23' g-min-height="2" />
+        <layout g='row' g-min-height='50'>
+            <resistance drive_resistance="$(drive)_resistance"/>
+            <action action_name="$(one)" />
+            <action action_name="$(two)" />
+            <action action_name="$(three)" />
+        </layout>
+    </template>
+</group>
